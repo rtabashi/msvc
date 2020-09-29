@@ -87,8 +87,8 @@ unsigned char* ascii_to_bin(unsigned char* ascii)
 	memset(bin, 0, len + 1);
 
 	for (i = 0; i < len; i++) {
-		h_hex = char_to_hex(ascii[i*2]);
-		l_hex = char_to_hex(ascii[i*2+1]);
+		h_hex = char_to_hex(ascii[i * 2]);
+		l_hex = char_to_hex(ascii[i * 2 + 1]);
 		bin[i] = (h_hex << 4) ^ l_hex;
 	}
 	return bin;
