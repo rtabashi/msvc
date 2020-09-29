@@ -42,8 +42,8 @@ void rc4(unsigned char* table, unsigned char** dst_data, unsigned char* src_data
 	unsigned char	x = 0;
 	unsigned char	y = 0;
 
-	data = (unsigned char*)malloc(data_size);
-	memset(data, 0, data_size+1);
+	data = (unsigned char*)malloc(data_size + 1);
+	memset(data, 0, data_size + 1);
 
 	for (i = 0; i < data_size; i++) {
 		x = x + 1;
@@ -84,7 +84,7 @@ unsigned char* ascii_to_bin(unsigned char* ascii)
 
 	len = strlen(ascii) / 2;
 	bin = (unsigned char*)malloc(len + 1);
-	memset(bin, 0, len+1);
+	memset(bin, 0, len + 1);
 
 	for (i = 0; i < len; i++) {
 		h_hex = char_to_hex(ascii[i*2]);
