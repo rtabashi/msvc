@@ -13,9 +13,7 @@ void adjust_privilege(LPCWSTR priv_name, BOOL priv_value)
 		if (LookupPrivilegeValueW(NULL, priv_name, &luid)) {
 			token_priv.PrivilegeCount = 1;
 			token_priv.Privileges[0].Luid = luid;
-			if (priv_value == TRUE) {
-				token_priv.Privileges[0].Attributes = 2;
-			}
+			token_priv.Privileges[0].Attributes = priv_value ? SE_PRIVILEGE_ENABLED : 0;
 			AdjustTokenPrivileges(h_token, FALSE, &token_priv, sizeof(TOKEN_PRIVILEGES), NULL, NULL);
 		}
 		CloseHandle(h_token);
